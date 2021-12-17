@@ -1,2 +1,4 @@
-package lab4;public class GetMessage {
+package lab4;
+
+public class GetMessage {
 }
