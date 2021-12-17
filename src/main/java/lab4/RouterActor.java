@@ -20,7 +20,7 @@ public class RouterActor extends AbstractActor {
 
     private static final String STORAGE_NAME = "storage";
     private static final int NUM_WORKERS = 5;
-    private static final int MAX_RETRIES = 5;
+    private static final int MAX_RETRIES = 10;
     private static final Duration DURATION = Duration.ofMinutes(1);
 
     private static SupervisorStrategy strategy = new OneForOneStrategy(
