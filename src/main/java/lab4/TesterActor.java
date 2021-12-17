@@ -3,9 +3,23 @@ package lab4;
 import akka.actor.AbstractActor;
 import akka.japi.pf.ReceiveBuilder;
 
+import javax.script.Invocable;
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+
 public class TesterActor extends AbstractActor {
     private String test(TestMessage msg) {
-        
+        String result;
+        try {
+            ScriptEngine engine = new ScriptEngineManager().getEngineByName("nashorn");
+            engine.eval(msg.getJsScript());
+            Invocable invocable = (Invocable) engine;
+            result = invocable.invokeFunction(msg.getFunctionName(), msg.getParams().toArray()).toString();
+        } catch (Exception e) {
+
+        }
+        if (result.equals(msg.getExpectedResult()))
+            return String
     }
     @Override
     public Receive createReceive() {
