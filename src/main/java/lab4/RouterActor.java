@@ -7,6 +7,7 @@ import akka.japi.pf.ReceiveBuilder;
 import akka.routing.Routee;
 import akka.routing.Router;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RouterActor extends AbstractActor {
@@ -20,7 +21,10 @@ public class RouterActor extends AbstractActor {
         storage= getContext().actorOf(Props.create(StorageActor.class), STORAGE_NAME);
         getContext().watch(storage);
 
-        List<Routee> routees
+        List<Routee> routees = new ArrayList<Routee>();
+        for (int i = 0; i < NUM_WORKERS; i++) {
+            ActorRef 
+        }
     }
 
     public void test(PackageData data) {
