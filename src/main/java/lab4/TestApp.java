@@ -33,5 +33,7 @@ public class TestApp {
                 ConnectHttp.toHost(HOST, PORT),
                 materializer
         );
+        System.in.read();
+        binding.thenCompose()
     }
 }
