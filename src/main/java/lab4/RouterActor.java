@@ -4,6 +4,8 @@ import akka.actor.AbstractActor;
 import akka.actor.ActorRef;
 import akka.actor.Props;
 import akka.japi.pf.ReceiveBuilder;
+import akka.routing.ActorRefRoutee;
+import akka.routing.RandomRoutingLogic;
 import akka.routing.Routee;
 import akka.routing.Router;
 
@@ -18,13 +20,15 @@ public class RouterActor extends AbstractActor {
     private static final int NUM_WORKERS = 5;
 
     public RouterActor() {
-        storage= getContext().actorOf(Props.create(StorageActor.class), STORAGE_NAME);
+        storage = getContext().actorOf(Props.create(StorageActor.class), STORAGE_NAME);
         getContext().watch(storage);
-
-        List<Routee> routees = new ArrayList<Routee>();
+        List<Routee> routees = new ArrayList<>();
         for (int i = 0; i < NUM_WORKERS; i++) {
-            ActorRef 
+            ActorRef tester = getContext().actorOf(Props.create(TesterActor.class));
+            getContext().watch(tester);
+            routees.add(new ActorRefRoutee(tester));
         }
+        router = new Router(new RandomRoutingLogic(), routees);
     }
 
     public void test(PackageData data) {
