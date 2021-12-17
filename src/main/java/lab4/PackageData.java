@@ -1,5 +1,6 @@
 package lab4;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
 
 public class PackageData {
@@ -8,5 +9,5 @@ public class PackageData {
     private final String functionName;
     private final ArrayList<> tests;
 
-    
+
 }
