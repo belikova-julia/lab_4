@@ -15,7 +15,27 @@ public class PackageData {
     private final ArrayList<> tests;
 
     @JsonCreator
-    public PackageData() {
-
+    public PackageData(@JsonProperty("packageId") String packageId,
+                       @JsonProperty("jsScript") String jsScript,
+                       @JsonProperty("functionName") String functionName,
+                       @JsonProperty("tests") ArrayList<> tests) {
+        this.packageId = packageId;
+        this.jsScript = jsScript;
+        this.functionName = functionName;
+        this.tests = tests;
     }
+
+    public String getPackageId() {
+        return packageId;
+    }
+
+    public String getJsScript() {
+        return jsScript;
+    }
+
+    public String getFunctionName() {
+        return functionName;
+    }
+
+    p
 }
