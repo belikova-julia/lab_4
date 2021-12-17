@@ -20,10 +20,6 @@ public class TestMessage {
         this.params = params;
     }
 
-    public TestMessage(String packageId) {
-        this.packageId = packageId;
-    }
-
     public String getPackageId() {
         return packageId;
     }
@@ -36,7 +32,15 @@ public class TestMessage {
         return functionName;
     }
 
-    public ArrayList<TestData> getTests() {
-        return tests;
+    public String getTestName() {
+        return testName;
+    }
+
+    public String getExpectedResult() {
+        return expectedResult;
+    }
+
+    public ArrayList<Object> getParams() {
+        return params;
     }
 }
