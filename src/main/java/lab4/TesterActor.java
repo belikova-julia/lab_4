@@ -24,10 +24,15 @@ public class TesterActor extends AbstractActor {
             return String.format("%s - FAIL, result - %s, expected - %s",
                     msg.getTestName(), result, msg.getExpectedResult());
     }
+
+    private void saveResult(TestMessage msg) {
+        sender().tell(new ResultMessage(msg.getPackageId(), test(msg)), self());
+    }
+
     @Override
     public Receive createReceive() {
         return ReceiveBuilder.create()
-                .match(TestMessage.class, )
+                .match(TestMessage.class, this::saveResult)
                 .build();
     }
 }
