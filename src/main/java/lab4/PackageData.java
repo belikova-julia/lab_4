@@ -10,5 +10,8 @@ public class PackageData {
     private final String functionName;
     private final ArrayList<> tests;
 
+    
+    public PackageData() {
 
+    }
 }
