@@ -23,7 +23,7 @@ public class RouterActor extends AbstractActor {
     private static final int MAX_RETRIES = 10;
     private static final Duration DURATION = Duration.ofMinutes(1);
 
-    private static SupervisorStrategy strategy = new OneForOneStrategy(
+    private static final SupervisorStrategy strategy = new OneForOneStrategy(
             MAX_RETRIES, DURATION, DeciderBuilder.matchAny(o -> restart()).build());
 
     public RouterActor() {
