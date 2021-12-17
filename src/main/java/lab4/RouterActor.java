@@ -24,8 +24,7 @@ public class RouterActor extends AbstractActor {
     private static final Duration DURATION = Duration.ofMinutes(1);
 
     private static SupervisorStrategy strategy = new OneForOneStrategy(
-            MAX_RETRIES, DURATION,
-            DeciderBuilder.matchAny(o -> restart()).build())
+            MAX_RETRIES, DURATION, DeciderBuilder.matchAny(o -> restart()).build());
 
     public RouterActor() {
         storage = getContext().actorOf(Props.create(StorageActor.class), STORAGE_NAME);
