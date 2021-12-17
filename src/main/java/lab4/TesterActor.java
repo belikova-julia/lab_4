@@ -19,7 +19,10 @@ public class TesterActor extends AbstractActor {
 
         }
         if (result.equals(msg.getExpectedResult()))
-            return String.format("")
+            return String.format("%s - SUCCESS, result - %s", msg.getTestName(), result);
+        else
+            return String.format("%s - FAIL, result - %s, expected - %s",
+                    msg.getTestName(), result, msg.getExpectedResult());
     }
     @Override
     public Receive createReceive() {
