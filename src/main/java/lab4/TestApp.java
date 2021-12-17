@@ -34,6 +34,7 @@ public class TestApp {
                 materializer
         );
         System.in.read();
-        binding.thenCompose()
+        binding.thenCompose(ServerBinding::unbind)
+                .thenAccept(unbound -> system.terminate());
     }
 }
