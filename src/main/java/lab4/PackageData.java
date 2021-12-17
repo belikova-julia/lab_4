@@ -37,7 +37,7 @@ public class PackageData {
         return functionName;
     }
 
-    public ArrayList getTests() {
+    public ArrayList<TestData> getTests() {
         return tests;
     }
 }
