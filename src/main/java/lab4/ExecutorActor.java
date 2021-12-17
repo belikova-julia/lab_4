@@ -1,2 +1,4 @@
-package lab4;public class ExecutorActor {
+package lab4;
+
+public class ExecutorActor {
 }
