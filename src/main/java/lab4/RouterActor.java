@@ -10,7 +10,7 @@ public class RouterActor extends AbstractActor {
     private Router router;
     private ActorRef storage;
 
-    private final String STORAGE_NAME = "storage";
+    private static final String STORAGE_NAME = "storage";
     private static final int NUM_WORKERS = 5;
 
     public RouterActor() {
