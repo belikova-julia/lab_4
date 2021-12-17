@@ -38,6 +38,10 @@ public class RouterActor extends AbstractActor {
         router = new Router(new RandomRoutingLogic(), routees);
     }
 
+    public SupervisorStrategy supervisorStrategy() {
+        return strategy;
+    }
+
     public void test(PackageData data) {
         for (TestData t : data.getTests()) {
             router.route(
