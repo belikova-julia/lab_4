@@ -1,2 +1,4 @@
-package lab4;public class RouterActor {
+package lab4;
+
+public class RouterActor {
 }
