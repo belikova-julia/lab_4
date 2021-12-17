@@ -1,5 +1,7 @@
 package lab4;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 
 public class TestData {
@@ -8,6 +10,6 @@ public class TestData {
     private final ArrayList<Object> params;
 
     public TestData() {
-        
+
     }
 }
