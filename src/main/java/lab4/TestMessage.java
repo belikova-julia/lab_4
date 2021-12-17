@@ -6,8 +6,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 
 public class TestMessage {
-    private final String packageId, jsScript, functionName;
-    private final ArrayList<TestData> tests;
+    private final String packageId, jsScript, functionName, testName, expectedResult;
+    private final ArrayList<Object> params;
 
     @JsonCreator
     public PackageData(@JsonProperty("packageId") String packageId,
