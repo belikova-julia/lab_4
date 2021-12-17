@@ -1,4 +1,10 @@
 package lab4;
 
-public class ExecutorActor {
+import akka.actor.AbstractActor;
+
+public class ExecutorActor extends AbstractActor {
+    @Override
+    public Receive createReceive() {
+        return null;
+    }
 }
