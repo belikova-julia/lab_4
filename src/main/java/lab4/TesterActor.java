@@ -19,7 +19,7 @@ public class TesterActor extends AbstractActor {
 
         }
         if (result.equals(msg.getExpectedResult()))
-            return 
+            return String.format("")
     }
     @Override
     public Receive createReceive() {
