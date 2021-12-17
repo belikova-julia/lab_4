@@ -1,13 +1,13 @@
 package lab4;
 
 public class GetMessage {
-    private final String packageID;
+    private final String packageId;
 
-    public GetMessage(String packageID) {
-        this.packageID = packageID;
+    public GetMessage(String packageId) {
+        this.packageId = packageId;
     }
 
-    public String getPackageID() {
-        return packageID;
+    public String getPackageId() {
+        return packageId;
     }
 }

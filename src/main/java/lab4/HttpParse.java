@@ -22,8 +22,8 @@ public class HttpParse {
 
     public Route createRoute() {
         return route(
-                get(() -> parameter("packageID", (ID) -> {
-                    Future<Object> future = Patterns.ask(router, new GetMessage(ID), TIMEOUT);
+                get(() -> parameter("packageId", (Id) -> {
+                    Future<Object> future = Patterns.ask(router, new GetMessage(Id), TIMEOUT);
                     return completeOKWithFuture(future, Jackson.marshaller());
                 })),
                 post(() -> entity(Jackson.unmarshaller(), msg -> {
