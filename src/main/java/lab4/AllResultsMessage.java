@@ -1,16 +1,18 @@
 package lab4;
 
+import java.util.ArrayList;
+
 public class AllResultsMessage {
     private final String packageId;
-    private final String result;
+    private final ArrayList<String> results;
 
-    public ResultMessage(String packageId, String result) {
+    public AllResultsMessage(String packageId, ArrayList<String> results) {
         this.packageId = packageId;
-        this.result = result;
+        this.results = results;
     }
 
-    public String getResult() {
-        return result;
+    public ArrayList<String> getResult() {
+        return results;
     }
 
     public String getPackageId() {
