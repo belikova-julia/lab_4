@@ -4,12 +4,17 @@ import akka.actor.ActorRef;
 import akka.http.javadsl.marshallers.jackson.Jackson;
 import akka.http.javadsl.server.Route;
 import akka.pattern.Patterns;
+import akka.util.Timeout;
 import scala.concurrent.Future;
+
+import java.time.Duration;
+
 import static akka.http.javadsl.server.Directives.*;
 
 public class HttpParse {
     private final ActorRef router;
     private static final String SUCCESS_MSG = "";
+    private final static Timeout TIMEOUT = Timeout.create(Duration.ofSeconds(5));
 
     public HttpParse(ActorRef routerActor) {
         this.router = routerActor;
@@ -18,7 +23,7 @@ public class HttpParse {
     public Route createRoute() {
         return route(
                 get(() -> parameter("packageID", (ID) -> {
-                    Future<Object> future = Patterns.ask(router, );
+                    Future<Object> future = Patterns.ask(router, new GetMessage(ID), TIMEOUT);
                     return completeOKWithFuture(future, Jackson.marshaller());
                 })),
                 post(() -> entity(Jackson.unmarshaller(), msg -> {
