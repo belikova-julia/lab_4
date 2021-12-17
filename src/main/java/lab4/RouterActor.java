@@ -11,12 +11,13 @@ public class RouterActor extends AbstractActor {
     private ActorRef storage;
 
     private final String STORAGE_NAME = "storage";
+    private static final int NUM_WORKERS = 5;
 
     public RouterActor() {
         storage= getContext().actorOf(Props.create(StorageActor.class), STORAGE_NAME);
         getContext().watch(storage);
 
-        
+
     }
 
     public void test(PackageData data) {
