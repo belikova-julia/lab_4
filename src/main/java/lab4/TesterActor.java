@@ -16,7 +16,7 @@ public class TesterActor extends AbstractActor {
             Invocable invocable = (Invocable) engine;
             result = invocable.invokeFunction(msg.getFunctionName(), msg.getParams().toArray()).toString();
         } catch (Exception e) {
-
+            return String.format("%s - ERROR, %s", msg.getTestName(), e.toString());
         }
         if (result.equals(msg.getExpectedResult()))
             return String.format("%s - SUCCESS, result - %s", msg.getTestName(), result);
