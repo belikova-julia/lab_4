@@ -1,29 +1,23 @@
 package lab4;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.util.ArrayList;
 
 public class TestMessage {
-    private final String
-            packageId,
-            jsScript,
-            functionName,
-            testName,
-            expectedResult;
+    private final String packageId, jsScript, functionName, testName, expectedResult;
     private final ArrayList<Object> params;
 
-    @JsonCreator
-    public PackageData(String packageId,
+    public TestMessage(String packageId,
                        String functionName,
                        String jsScript,
                        String testName,
-                       String expectedResult) {
+                       String expectedResult,
+                       ArrayList<Object> params) {
         this.packageId = packageId;
         this.jsScript = jsScript;
         this.functionName = functionName;
-        this.tests = tests;
+        this.testName = testName;
+        this.expectedResult = expectedResult;
+        this.params = params;
     }
 
     public TestMessage(String packageId) {
